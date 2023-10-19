@@ -1,3 +1,8 @@
+<?php
+require_once 'includes/config_session.inc.php';
+require_once 'includes/signup_view.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -5,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
     <title>Filmes</title>
 </head>
@@ -25,8 +30,29 @@
             <li><a href="#coming">Coming</a></li>
             <li><a href="#newsletter">Newsletter</a></li>
         </ul>
+        
+        <!-- SIGN UP / LOG IN FORMS -->
+        <div class="forms-container">
+            <form action="includes/login.inc.php" method="post">
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="senha" placeholder="Senha">
+                <button class="btn">Login</button>
+            </form>
 
-        <a href="#" class="btn"> Sign in</a>
+            <form action="includes/signup.inc.php" method="post">
+                <input type="text" name="username" placeholder="Username">
+                <input type="password" name="senha" placeholder="Senha">
+                <input type="text" name="email" placeholder="E-mail">
+                <button class="btn">Signup</button>
+            </form>
+
+            <?php
+            check_signup_errors();
+            ?>
+            
+        </div>
+
+        
     </header>
 
     <!--Home-->
